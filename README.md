@@ -1,28 +1,34 @@
-# vuex-product-list
+**********************************************************************************
+************* Reading Profile From API And Display Using Vue *********************
+**********************************************************************************
+**********************************************************************************
 
-This is a project to help me learn how to use Vue.js's state manager library Vuex with the help of this [tutorial](https://www.youtube.com/watch?v=BGAu__J4xoc&list=PL4cUxeGkcC9i371QO_Rtkl26MwtiJ30P2) from Net Ninja.
+This project demonstrates how to read API data of user profiles and display it using Vue.
 
-This quick web app just shows two product lists, and has a button that imitates a (very slow) server that changes the data.
+Before you run this project, please download and run project from another repository named as "profile-rest-api".
 
-![screen shot 2018-03-01 at 17 47 31](https://user-images.githubusercontent.com/14803518/36860279-bcc75c4a-1d78-11e8-8a45-42db6580eea7.png)
+This will start the API of user profiles that we will be consuming in this project.
 
-### Installation
+Download the project in C: and then run  the following command
 
-```
-git clone git@github.com:puyanwei/vuex-product-list.git
-cd vue-product-list
-npm install
-npm run dev
-```
+Install the dependencies in the local node_modules folder. 
 
-This should open a browser and open the page at http://localhost:8080/
+c:\vue-profile-project>npm install
 
-### State Management
+To run the project, run following command
 
-This tutorial showed me why using Vuex could better especially when handling a lot of data.
+c:\vue-profile-project>npm run dev
 
-Without using Vuex it means that there is a lot of back and forth data handling between a parent component and its children. This is especially longwinded if one child component wants to pass data to another.
+> cross-env NODE_ENV=development webpack-dev-server --open --hot
 
-![screen shot 2018-03-01 at 17 54 46](https://user-images.githubusercontent.com/14803518/36860614-b28fadee-1d79-11e8-8a45-cb55f6a1299b.png)
+Project is running at http://localhost:8080/
+webpack output is served from /dist/
+404s will fallback to /index.html
 
-Importing a state controller using Vuex means that the data can be used anywhere. It also has the benefit of being able to be edited in its own file, which would effect everything that is referring to it, meaning you wouldn't have to change each separate page.
+When you go to the link http://localhost:8080/ in browser, you will see the profiles
+(screenshots attached.)
+
+You can take a  look at profiles.vue in components that is called by App.vue. profiles.vue is responsible
+for fetching profiles using API and display pagination. User can increase the page size (which is number 
+of records displayed on a page), go to first, previous, next, last page by clicking pagination links.
+(screenshots attached.)
